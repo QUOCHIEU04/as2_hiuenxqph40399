@@ -1,6 +1,7 @@
 <?php
 
 use Admin\Oop\Controllers\Admin\CategogyController;
+use Admin\Oop\Controllers\Admin\CategoryController;
 use Admin\Oop\Controllers\Admin\DashboardController;
 use Admin\Oop\Controllers\Admin\ProductController;
 use Admin\Oop\Controllers\Admin\UserController;
@@ -36,6 +37,16 @@ $router->mount('/admin', function () use ($router) {
         $router->get('/{id}/delete',    ProductController::class . '@delete'); // Xóa
     });
 
+    $router->mount('/categories', function () use ($router) {
+        $router->get('/',               CategoryController::class . '@index');  // Danh sách
+        $router->get('/create',         CategoryController::class . '@create'); // Show form thêm mới
+        $router->post('/store',         CategoryController::class . '@store');  // Lưu mới vào DB
+        $router->get('/{id}/show',      CategoryController::class . '@show');   // Xem chi tiết
+        $router->get('/{id}/edit',      CategoryController::class . '@edit');   // Show form sửa
+        $router->post('/{id}/update',   CategoryController::class . '@update'); // Lưu sửa vào DB
+        $router->get('/{id}/delete',    CategoryController::class . '@delete'); // Xóa
+    });
+
     $router->mount('/users', function () use ($router) {
         $router->get('/',               UserController::class . '@index');  // Danh sách
         $router->get('/create',         UserController::class . '@create'); // Show form thêm mới
@@ -47,12 +58,4 @@ $router->mount('/admin', function () use ($router) {
     });
 });
 
-//     $router->mount('/categogys', function () use ($router) {
-//         $router->get('/',               CategogyController::class . '@index');  // Danh sách
-//         $router->get('/create',         CategogyController::class . '@create'); // Show form thêm mới
-//         $router->post('/store',         CategogyController::class . '@store');  // Lưu mới vào DB
-//         $router->get('/{id}/show',      CategogyController::class . '@show');   // Xem chi tiết
-//         $router->get('/{id}/edit',      CategogyController::class . '@edit');   // Show form sửa
-//         $router->post('/{id}/update',   CategogyController::class . '@update'); // Lưu sửa vào DB
-//         $router->get('/{id}/delete',    CategogyController::class . '@delete'); // Xóa
-// });
+

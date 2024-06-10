@@ -50,8 +50,8 @@
                 <span>Danh mục</span>
             </a>
             <ul>
-                <li><a href="{{ url('admin/categogys') }}">Danh mục</a></li>
-                <li><a href="{{ url('admin/categogys/create') }}">Thêm mới</a></li>
+                <li><a href="{{ url('admin/categories') }}">Danh mục</a></li>
+                <li><a href="{{ url('admin/categories/create') }}">Thêm mới</a></li>
             </ul>
         </li>
     </ul>
